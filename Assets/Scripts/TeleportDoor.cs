@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement; // Include this to manage scenes
 public class TeleportDoor : MonoBehaviour
 {
     private bool hasTeleported = false; // Flag to check if the player has already teleported
+    public string nextSceneName; // Public variable to specify the next scene
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +14,7 @@ public class TeleportDoor : MonoBehaviour
             Debug.Log("Player entered the door.");
             GameManager.instance.AddPoints(3); // Award points
             Debug.Log("Points awarded. Total points: " + GameManager.instance.points);
-            SceneManager.LoadScene("Prototype"); // Load the next scene
+            SceneManager.LoadScene(nextSceneName); // Load the scene specified in the Inspector
         }
     }
 
